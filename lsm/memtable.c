@@ -42,7 +42,7 @@ Node *createNode(char *key, char *value) {
 
   // Update the global memory usage
   // We have to manually add the size of the key and value
-  globalMemoryUsage += sizeof(Node) + strlen(key) + 1 + strlen(value) + 1;
+  INCREASE_MEMORY_USAGE(key, value);
 
   return newNode;
 }
@@ -174,8 +174,7 @@ static int deleteNodeHelper(Node **node, char *key) {
     // If the deleted node is different from the temporary node, update memory
     // usage
     if (temp != *node) {
-      globalMemoryUsage -=
-          (sizeof(Node) + strlen(temp->key) + 1 + strlen(temp->value) + 1);
+      DECREASE_MEMORY_USAGE(temp->key, temp->value);
       // Free the memory of the temporary node
       free(temp->key);
       free(temp->value);
@@ -215,8 +214,7 @@ static Node *clearTree(Node *root) {
     // Update global memory usage
     // Note: we could set this to 0, but I like to do it manually
     // so we can detect memory leaks
-    globalMemoryUsage -=
-        (sizeof(Node) + strlen(root->key) + 1 + strlen(root->value) + 1);
+    DECREASE_MEMORY_USAGE(root->key, root->value);
 
     // Free the memory!
     free(root->key);

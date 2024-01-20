@@ -121,16 +121,16 @@ void testMemtableRandomDeletion(int iterations) {
 
 /*
  * #############################
- * SSTable system test functions
+ * LSM system test functions
  * #############################
  */
 
 /*
- * void testSSTableInsertAndSearch(int iterations)
- *   Tests the SSTable by inserting and searching for nodes
+ * void testLSMInsertAndSearch(int iterations)
+ *   Tests the LSM by inserting and searching for nodes
  * @param iterations: The number of iterations to run the test
  */
-void testSSTableInsertAndSearch(int iterations) {
+void testLSMInsertAndSearch(int iterations) {
   char key[MAX_KEY_LENGTH];
   char value[MAX_VALUE_LENGTH];
 
@@ -149,16 +149,16 @@ void testSSTableInsertAndSearch(int iterations) {
   double timeTaken = ((double)(end - start)) / CLOCKS_PER_SEC;
 
   // clearMemtable();
-  printf("testSSTableInsertAndSearch completed in %.2f seconds.\n", timeTaken);
+  printf("testLSMInsertAndSearch completed in %.2f seconds.\n", timeTaken);
 }
 
 /*
- * void testSSTableRandomInsert(int iterations)
- *   Tests the SSTable by randomly inserting and searching for nodes
+ * void testLSMRandomInsert(int iterations)
+ *   Tests the LSM by randomly inserting and searching for nodes
  * @param iterations: The number of iterations to run the test
  */
-void testSSTableRandomInsert(int iterations) {
-  printf("Starting SSTable read test with %d iterations...\n", iterations);
+void testLSMRandomInsert(int iterations) {
+  printf("Starting LSM read test with %d iterations...\n", iterations);
   char key[MAX_KEY_LENGTH];
   char value[MAX_VALUE_LENGTH];
   srand((unsigned)time(NULL)); // Seed random number generator
@@ -178,16 +178,16 @@ void testSSTableRandomInsert(int iterations) {
   double timeTaken = ((double)(end - start)) / CLOCKS_PER_SEC;
 
   // clearMemtable();
-  printf("testSSTableRandomInsert completed in %.2f seconds.\n", timeTaken);
+  printf("testLSMRandomInsert completed in %.2f seconds.\n", timeTaken);
 }
 
 /*
- * void testSSTableRandomSearch(int iterations)
- *   Tests the SSTable by randomly searching for nodes
+ * void testLSMRandomSearch(int iterations)
+ *   Tests the LSM by randomly searching for nodes
  * @param iterations: The number of iterations to run the test
  */
-void testSSTableRandomSearch(int iterations) {
-  printf("Starting SSTable read test with %d iterations...\n", iterations);
+void testLSMRandomSearch(int iterations) {
+  printf("Starting LSM read test with %d iterations...\n", iterations);
   char key[MAX_KEY_LENGTH];
   char value[MAX_VALUE_LENGTH];
   srand((unsigned)time(NULL)); // Seed random number generator
@@ -208,16 +208,16 @@ void testSSTableRandomSearch(int iterations) {
   double timeTaken = ((double)(end - start)) / CLOCKS_PER_SEC;
 
   // clearMemtable();
-  printf("testSSTableRandomSearch completed in %.2f seconds.\n", timeTaken);
+  printf("testLSMRandomSearch completed in %.2f seconds.\n", timeTaken);
 }
 
 /*
- * void testSSTableRandomDeletion(int iterations)
- *   Tests the SSTable by randomly deleting nodes
+ * void testLSMRandomDeletion(int iterations)
+ *   Tests the LSM by randomly deleting nodes
  * @param iterations: The number of iterations to run the test
  */
-void testSSTableRandomDeletion(int iterations) {
-  printf("Starting SSTable read test with %d iterations...\n", iterations);
+void testLSMRandomDeletion(int iterations) {
+  printf("Starting LSM read test with %d iterations...\n", iterations);
   char key[MAX_KEY_LENGTH];
   char value[MAX_VALUE_LENGTH];
   srand((unsigned)time(NULL)); // Seed random number generator
@@ -239,12 +239,12 @@ void testSSTableRandomDeletion(int iterations) {
   double timeTaken = ((double)(end - start)) / CLOCKS_PER_SEC;
 
   // clearMemtable();
-  printf("testSSTableRandomDeletion completed in %.2f seconds.\n", timeTaken);
+  printf("testLSMRandomDeletion completed in %.2f seconds.\n", timeTaken);
 }
 
 /*
  * #################################
- * END SSTable system test functions
+ * END LSM system test functions
  * #################################
  */
 
@@ -253,10 +253,10 @@ void runAllTests(int iterations) {
   // testMemtableInsertAndSearch(iterations);
   // testMemtableRandomInsertAndSearch(iterations);
   // testMemtableRandomDeletion(iterations);
-  // testSSTableInsertAndSearch(iterations);
-  // testSSTableRandomInsert(iterations);
-  // testSSTableRandomSearch(iterations);
-  // testSSTableRandomDeletion(iterations);
+  // testLSMInsertAndSearch(iterations);
+  // testLSMRandomInsert(iterations);
+  // testLSMRandomSearch(iterations);
+  // testLSMRandomDeletion(iterations);
   // print2DMemtable();
   // printf("All tests passed!\n");
 }

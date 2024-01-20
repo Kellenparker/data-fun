@@ -79,14 +79,14 @@ void testUI() {
   // void testMemtableInsertAndSearch(int iterations);
   // void testMemtableRandomInsertAndSearch(int iterations);
   // void testMemtableRandomDeletion(int iterations);
-  // void testSSTableInsertAndSearch(int iterations);
-  // void testSSTableRandomInsert(int iterations);
-  // void testSSTableRandomSearch(int iterations);
-  // void testSSTableRandomDeletion(int iterations);
+  // void testLSMInsertAndSearch(int iterations);
+  // void testLSMRandomInsert(int iterations);
+  // void testLSMRandomSearch(int iterations);
+  // void testLSMRandomDeletion(int iterations);
   printf("Enter test (testMemtableInsertAndSearch [1], "
          "testMemtableRandomInsertAndSearch [2], testMemtableRandomDeletion "
-         "[3], testSSTableInsertAndSearch [4], testSSTableRandomInsert [5], "
-         "testSSTableRandomSearch [6], testSSTableRandomDeletion [7]): ");
+         "[3], testLSMInsertAndSearch [4], testLSMRandomInsert [5], "
+         "testLSMRandomSearch [6], testLSMRandomDeletion [7]): ");
   char inputBuffer[200]; // Buffer for fgets
   fgets(inputBuffer, sizeof(inputBuffer), stdin);
   int testNumber;
@@ -106,16 +106,16 @@ void testUI() {
     testMemtableRandomDeletion(iterations);
     break;
   case 4:
-    testSSTableInsertAndSearch(iterations);
+    testLSMInsertAndSearch(iterations);
     break;
   case 5:
-    testSSTableRandomInsert(iterations);
+    testLSMRandomInsert(iterations);
     break;
   case 6:
-    testSSTableRandomSearch(iterations);
+    testLSMRandomSearch(iterations);
     break;
   case 7:
-    testSSTableRandomDeletion(iterations);
+    testLSMRandomDeletion(iterations);
     break;
   default:
     printf("Unknown test.\n");

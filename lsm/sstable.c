@@ -226,9 +226,10 @@ void writeMemtableToSSTable() {
   // Write the memtable to the file
   serializeMemtableToFile(memtableRoot, file);
 
+  printf("Memtable written to SSTable file: %s\n", filename);
+
   free(filename);
   fclose(file);
-  printf("Memtable written to SSTable file: %s\n", filename);
 }
 
 /*

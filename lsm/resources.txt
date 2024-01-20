@@ -1,8 +1,0 @@
-TODO:
-    validation functions
-    tombstone file handling functions 
-      to replace in-function handling in various places
-      tombstone file can be created on initialization
-    more testing
-      make sure compaction is correct
-        Error removing file: No such file or directory
