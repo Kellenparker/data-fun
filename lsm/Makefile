@@ -1,18 +1,18 @@
 CC=gcc
 CFLAGS=-I. -Wall -g
-DEPS=memtable.h sstable.h test.h
-OBJ=main.o memtable.o sstable.o test.o
+DEPS=memtable.h lsm.h test.h
+OBJ=main.o memtable.o lsm.o test.o
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-sstable: $(OBJ)
+lsm: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 .PHONY: clean run
 
 clean:
-	rm -f *.o sstable
+	rm -f *.o lsm
 
-run: sstable
-	./sstable
+run: lsm
+	./lsm

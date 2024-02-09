@@ -5,7 +5,7 @@
 #define DIR_NAME "data"
 
 // SSTable macros
-#define FILENAME_FORMAT DIR_NAME "/memtable_%lld.dat"
+#define FILENAME_FORMAT DIR_NAME "/sstable_%lld.dat"
 #define MEMORY_THRESHOLD 1000 * 1024 // 1MB
 #define DELIMITER " "                // key[delimiter]value
 

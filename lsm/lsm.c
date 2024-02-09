@@ -6,7 +6,7 @@
 #include <time.h>
 
 #include "memtable.h"
-#include "sstable.h"
+#include "lsm.h"
 #include "util.h"
 
 /*

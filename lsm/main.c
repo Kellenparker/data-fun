@@ -4,7 +4,7 @@
 #include <time.h>
 
 #include "memtable.h"
-#include "sstable.h"
+#include "lsm.h"
 #include "test.h"
 
 // Function declarations

@@ -50,18 +50,31 @@ Node *createNode(char *key, char *value) {
 /*
  * static void insertHelper(Node **node, char *key, char *value)
  *   A recursive helper function that finds the correct position to insert a new
- *   node into the BST.
+ *   node into the BST, or updates the value if the key already exists.
  * @param node: A double pointer to the current node (or root for the first
  *   call).
- * @param key: The key of the new node.
- * @param value: The value of the new node.
+ * @param key: The key of the new node or existing node to be updated.
+ * @param value: The value of the new node or updated value for existing node.
  */
 static void insertHelper(Node **node, char *key, char *value) {
   if (*node == NULL) {
+    // Node doesn't exist, create a new one
     *node = createNode(key, value);
+  } else if (strcmp(key, (*node)->key) == 0) {
+    // Key already exists, update the node's value
+
+    // Free the old value and decrease memory usage
+    DECREASE_MEMORY_USAGE((*node)->key, (*node)->value);
+    free((*node)->value);
+    // Allocate memory for the new value and update memory usage
+    (*node)->value = strdup(value);
+    INCREASE_MEMORY_USAGE(key, value);
+    // printf("Memory usage post-update: %d\n", globalMemoryUsage);
   } else if (strcmp(key, (*node)->key) < 0) {
+    // Continue searching in the left subtree
     insertHelper(&((*node)->left), key, value);
-  } else if (strcmp(key, (*node)->key) > 0) {
+  } else {
+    // Continue searching in the right subtree
     insertHelper(&((*node)->right), key, value);
   }
 }

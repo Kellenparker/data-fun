@@ -1,5 +1,7 @@
 /btree
 
+*/.vscode
+
 # LSM
 /lsm/data/*
 /lsm/*.o
